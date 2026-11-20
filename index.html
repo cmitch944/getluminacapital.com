@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumina Capital — The Broker Platform for Deals With No Home</title>
+<meta name="description" content="Lumina Capital matches your deal to the right lenders. Upload the file, AI Underwriting extracts the parameters, and you get exactly 3 lender recommendations with the why. Built for brokers and small broker shops.">
+<meta property="og:title" content="Lumina Capital — The Broker Platform for Deals With No Home">
+<meta property="og:description" content="Upload a deal, get exactly 3 lender recommendations with the why — from a verified database of 695 active lender records across 31 categories.">
+<style>
+  :root{
+    --bg:#0a0f1a; --bg2:#0e1626; --card:#111c30; --line:rgba(212,175,55,.28);
+    --gold:#d4af37; --gold2:#e8c96a; --ink:#f4efe4; --muted:#b9b09a; --muted2:#8f8772;
+    --green:#2f9e6e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.55}
+  .sans{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  header{position:sticky;top:0;background:rgba(10,15,26,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{font-size:21px;letter-spacing:.02em}
+  .brand b{color:var(--gold)}
+  .nav a.nl{color:var(--muted);text-decoration:none;margin-left:20px;font-size:14.5px}
+  .nav a.nl:hover{color:var(--gold2)}
+  .hero{padding:52px 0 34px;background:radial-gradient(900px 480px at 78% -10%,rgba(212,175,55,.13),transparent 60%),var(--bg)}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
+  @media(min-width:920px){.hero-grid{grid-template-columns:1.02fr .98fr}}
+  .pill{display:inline-block;padding:4px 12px;border:1px solid var(--line);border-radius:999px;color:var(--gold2);font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+  h1{font-size:42px;line-height:1.12;margin:16px 0 14px;font-weight:600}
+  h1 .gold{color:var(--gold)}
+  .lede{font-size:18.5px;color:var(--muted);max-width:56ch;margin-bottom:22px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+  .btn{display:inline-block;padding:13px 22px;border-radius:10px;text-decoration:none;font-size:15.5px;font-weight:600}
+  .btn-gold{background:var(--gold);color:#14100a}
+  .btn-outline{border:1px solid var(--line);color:var(--ink)}
+  .sub{font-size:14px;color:var(--muted2);max-width:58ch}
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+  .strip-in{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;padding:18px 0}
+  .stat{text-align:center;min-width:140px;flex:1}
+  .stat .n{font-size:27px;color:var(--gold)}
+  .stat .l{font-size:13px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  section{padding:56px 0}
+  h2{font-size:31px;margin-bottom:10px;font-weight:600}
+  .sec-intro{color:var(--muted);max-width:66ch;margin-bottom:30px;font-size:16.5px}
+  .steps{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:820px){.steps{grid-template-columns:repeat(2,1fr)}}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .step .k{color:var(--gold);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+  .step h3{font-size:19px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:15px}
+  .dark{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .callout{border:1px solid var(--line);border-radius:14px;padding:22px;background:rgba(212,175,55,.06);color:var(--ink);max-width:78ch}
+  .callout b{color:var(--gold2)}
+  .plans{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:900px){.plans{grid-template-columns:repeat(3,1fr)}}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column}
+  .plan.featured{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+  .plan .tag{font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--gold2)}
+  .plan .price{font-size:38px;margin:8px 0 2px}
+  .plan .price span{font-size:16px;color:var(--muted)}
+  .plan ul{list-style:none;margin:14px 0 20px;color:var(--muted);font-size:15px}
+  .plan li{margin-bottom:8px}
+  .plan .btn{margin-top:auto;text-align:center}
+  .closing{text-align:center;padding:64px 0}
+  .closing .big{font-size:32px;max-width:22ch;margin:0 auto 12px}
+  .closing p{color:var(--muted);margin-bottom:22px}
+  footer{border-top:1px solid var(--line);padding:38px 0 46px;background:var(--bg2)}
+  footer .brand{margin-bottom:12px}
+  footer p,footer li{color:var(--muted);font-size:14px}
+  footer h4{margin:20px 0 8px;font-size:15px;color:var(--ink)}
+  footer ul{margin-left:18px}
+  .fine{font-size:12.5px;color:var(--muted2);margin-top:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Lumina <b>Capital</b></div>
+    <nav class="sans">
+      <a class="nl" href="#how">How It Works</a>
+      <a class="nl" href="#protection">Protection</a>
+      <a class="nl" href="#plans">Plans</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="pill sans">For brokers &amp; small broker shops</span>
+        <h1>Every broker has deals with <span class="gold">no home.</span> This is where they land.</h1>
+        <p class="lede">Upload the deal file. AI Underwriting extracts the parameters — you confirm them. The engine returns exactly 3 lender recommendations with the why, drawn from a verified database of 695 active lender records across 31 categories.</p>
+        <div class="cta-row sans">
+          <a class="btn btn-gold" href="https://buy.stripe.com/eVqcN5bU67bz0qw9TKcs803">Become a Founding Broker →</a>
+          <a class="btn btn-outline" href="#how">See How It Works</a>
+        </div>
+        <p class="sub">No guarantee of funding or results — lenders make their own decisions. What we guarantee is the work: real matching, honest reasoning, and a database that stays protected so it stays valuable.</p>
+      </div>
+      <div>
+        <!--
+  Luna for Lumina Capital — embeddable widget snippet for getluminacapital.com
+  ============================================================================
+  Broker-facing Luna twin. Same token endpoint, broker persona selected with
+  ?p=capital. On Start, the widget POSTs to the token endpoint, receives a
+  short-lived Anam session token (the API key never reaches the browser),
+  loads the Anam JS SDK from esm.sh, and streams Luna to the video element.
+-->
+<div id="luna-capital-widget" class="llcap-card">
+  <style>
+    .llcap-card{box-sizing:border-box;max-width:560px;margin:0 auto;padding:20px;border-radius:16px;background:#0c1220;color:#f4efe4;font-family:inherit;box-shadow:0 10px 30px rgba(0,0,0,.5);text-align:left;border:1px solid rgba(212,175,55,.35)}
+    .llcap-card *{box-sizing:border-box}
+    .llcap-badge{display:inline-block;padding:3px 10px;border-radius:999px;background:rgba(212,175,55,.15);color:#e8c96a;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+    .llcap-title{margin:10px 0 4px;font-size:24px;line-height:1.2;color:#f4efe4}
+    .llcap-sub{margin:0 0 14px;color:#cfc7ae;font-size:15px;line-height:1.45}
+    .llcap-stage{position:relative;border-radius:12px;overflow:hidden;background:#05080f;aspect-ratio:16/9}
+    .llcap-stage video{width:100%;height:100%;object-fit:cover;display:block;background:#05080f}
+    .llcap-live{position:absolute;top:10px;left:10px;display:none;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:rgba(5,8,15,.75);color:#fff;font-size:12px}
+    .llcap-live .llcap-dot{width:8px;height:8px;border-radius:50%;background:#ff4d4d}
+    .llcap-status{margin:12px 2px 0;font-size:14px;color:#cfc7ae;min-height:20px}
+    .llcap-actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .llcap-btn{appearance:none;border:0;border-radius:10px;padding:12px 18px;font-size:15px;font-weight:600;cursor:pointer}
+    .llcap-btn[disabled]{opacity:.55;cursor:default}
+    .llcap-start{background:#2f9e6e;color:#fff}
+    .llcap-end{background:#3a4a5f;color:#fff;display:none}
+    .llcap-fallbacks{margin-top:14px;font-size:13.5px;color:#a99f83;line-height:1.5}
+    .llcap-fallbacks a{color:#e8c96a}
+  </style>
+
+  <span class="llcap-badge">Luna Live™</span>
+  <h3 class="llcap-title">Got a deal with no home? Talk to Luna live.</h3>
+  <p class="llcap-sub">Luna is Clay Mitchell's assistant. She'll explain how Lumina Capital matches your deal to the right lenders, what it costs, and how the process protects everyone — live on video, right now.</p>
+
+  <div class="llcap-stage">
+    <video id="llcap-video" autoplay playsinline></video>
+    <span class="llcap-live" id="llcap-live"><span class="llcap-dot"></span>Live</span>
+  </div>
+
+  <p class="llcap-status" id="llcap-status">Ready — tap Start live video to talk to Luna.</p>
+
+  <div class="llcap-actions">
+    <button type="button" class="llcap-btn llcap-start" id="llcap-start">Start live video with Luna</button>
+    <button type="button" class="llcap-btn llcap-end" id="llcap-end">End call</button>
+  </div>
+
+  <p class="llcap-fallbacks">
+    Ready to place deals? <a href="https://buy.stripe.com/eVqcN5bU67bz0qw9TKcs803" target="_blank" rel="noopener">Become a Founding Broker — $149/mo, locked</a><br>
+    Prefer email? <a href="mailto:admin@getluminaai.com?subject=Lumina%20Capital%20broker%20question">admin@getluminaai.com</a>
+  </p>
+
+  <script type="module">
+    // ===== Luna for Lumina Capital widget =====
+    const TOKEN_ENDPOINT = "https://luna-live-token.netlify.app/api/token?p=capital";
+
+    const startBtn = document.getElementById("llcap-start");
+    const endBtn = document.getElementById("llcap-end");
+    const statusEl = document.getElementById("llcap-status");
+    const liveEl = document.getElementById("llcap-live");
+    let anamClient = null;
+
+    function setStatus(message) { statusEl.textContent = message; }
+
+    function setLiveUI(live) {
+      liveEl.style.display = live ? "inline-flex" : "none";
+      endBtn.style.display = live ? "inline-block" : "none";
+      startBtn.style.display = live ? "none" : "inline-block";
+    }
+
+    async function startChat() {
+      startBtn.disabled = true;
+      try {
+        setStatus("Connecting…");
+        const response = await fetch(TOKEN_ENDPOINT, { method: "POST" });
+        if (!response.ok) throw new Error("token endpoint returned " + response.status);
+        const { sessionToken } = await response.json();
+        if (!sessionToken) throw new Error("no session token returned");
+
+        setStatus("Connecting to Luna…");
+        const { createClient } = await import("https://esm.sh/@anam-ai/js-sdk@latest");
+        anamClient = createClient(sessionToken);
+        await anamClient.streamToVideoElement("llcap-video");
+        setLiveUI(true);
+        setStatus("Live — speak to Luna. She can explain how Lumina Capital works and answer your questions.");
+      } catch (err) {
+        anamClient = null;
+        setLiveUI(false);
+        setStatus("Connection failed (" + (err && err.message ? err.message : "unknown error") + "). Please try again, or use the subscribe link or email below.");
+      } finally {
+        startBtn.disabled = false;
+      }
+    }
+
+    function stopChat() {
+      if (anamClient) {
+        try { anamClient.stopStreaming(); } catch (e) { /* already stopped */ }
+        anamClient = null;
+      }
+      setLiveUI(false);
+      setStatus("Session ended — thanks for talking with Luna. The subscribe link and email below reach us any time.");
+    }
+
+    startBtn.addEventListener("click", startChat);
+    endBtn.addEventListener("click", stopChat);
+  </script>
+</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS STRIP -->
+  <div class="strip">
+    <div class="wrap strip-in sans">
+      <div class="stat"><div class="n">695</div><div class="l">Active lender records</div></div>
+      <div class="stat"><div class="n">31</div><div class="l">Deal categories</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Recommendations per deal</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">Lender unlocked per deal</div></div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <h2>How It Works</h2>
+      <p class="sec-intro">Five steps between a dead file and a live lender conversation. You stay in control at every one of them — the platform does the searching, you make the calls.</p>
+      <div class="steps">
+        <div class="step"><div class="k sans">Step 1</div><h3>Subscribe</h3><p>Prepaid monthly through Stripe. Founding Brokers lock $149/mo for life — the first 10 only. No lock-in contract; cancel any time.</p></div>
+        <div class="step"><div class="k sans">Step 2</div><h3>Upload the deal</h3><p>Drop in the deal file. AI Underwriting reads it and extracts the parameters that decide placement — amount, industry, credit grade, time in business, and the rest.</p></div>
+        <div class="step"><div class="k sans">Step 3</div><h3>Confirm the parameters</h3><p>Nothing runs on unconfirmed data. You review what the AI extracted, fix anything it got wrong, and approve the deal profile before matching.</p></div>
+        <div class="step"><div class="k sans">Step 4</div><h3>Get exactly 3 recommendations</h3><p>Each comes with the why: lender type and profile fit, deal-size band, credit grades served, indicative rate and term ranges, HQ region. Names stay anonymous at this stage.</p></div>
+        <div class="step"><div class="k sans">Step 5</div><h3>Choose one, connect</h3><p>Pick the lender to pursue for that deal. Only then is that one lender's identity and public contact route released — in-platform, for that deal, and logged. Track the deal from Submitted to Funded inside the platform.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTECTION -->
+  <section id="protection" class="dark">
+    <div class="wrap">
+      <h2>Protected by design</h2>
+      <p class="sec-intro">A lender database anyone can copy is worth nothing within a month. Lumina Capital is built so the asset — and your edge as a subscriber — survives.</p>
+      <div class="callout">
+        <p><b>The database is never browsable, searchable, or exportable.</b> Recommendations are profiles first; a lender's identity is released only for the one lender you select for a specific deal, and every release is logged. Submission quotas and probing detection keep the matching honest. You build your own relationship with the lender you choose — that's the point — but the map itself stays ours, so it keeps working for you deal after deal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section id="plans">
+    <div class="wrap">
+      <h2>Plans</h2>
+      <p class="sec-intro">Your plan and price are set when you subscribe. Billing is prepaid monthly through Stripe and never starts before your account is live.</p>
+      <div class="plans">
+        <div class="plan featured">
+          <div class="tag sans">Founding Broker — first 10 only</div>
+          <div class="price">$149<span>/mo</span></div>
+          <p class="sans" style="color:var(--muted);font-size:14px">Locked at this rate while your subscription stays active.</p>
+          <ul class="sans">
+            <li>25 deal submissions / month</li>
+            <li>Exactly 3 recommendations per deal, with the why</li>
+            <li>One lender unlock per deal, logged</li>
+            <li>Deal pipeline tracker</li>
+          </ul>
+          <a class="btn btn-gold sans" href="https://buy.stripe.com/eVqcN5bU67bz0qw9TKcs803">Subscribe — Founding Broker</a>
+        </div>
+        <div class="plan">
+          <div class="tag sans">Standard Broker</div>
+          <div class="price">$249<span>/mo</span></div>
+          <p class="sans" style="color:var(--muted);font-size:14px">The full platform, one seat.</p>
+          <ul class="sans">
+            <li>25 deal submissions / month</li>
+            <li>Exactly 3 recommendations per deal, with the why</li>
+            <li>One lender unlock per deal, logged</li>
+            <li>Deal pipeline tracker</li>
+          </ul>
+          <a class="btn btn-outline sans" href="https://buy.stripe.com/dRm14ncYa0Nbehm4zqcs804">Subscribe — Standard Broker</a>
+        </div>
+        <div class="plan">
+          <div class="tag sans">Shop — 3 seats</div>
+          <div class="price">$299<span>/mo</span></div>
+          <p class="sans" style="color:var(--muted);font-size:14px">For small broker shops placing deals as a team.</p>
+          <ul class="sans">
+            <li>75 deal submissions / month</li>
+            <li>3 seats included</li>
+            <li>Exactly 3 recommendations per deal, with the why</li>
+            <li>One lender unlock per deal, logged</li>
+            <li>Deal pipeline tracker</li>
+          </ul>
+          <a class="btn btn-outline sans" href="https://buy.stripe.com/fZufZh0bocvTa169TKcs805">Subscribe — Shop</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <div class="wrap">
+      <div class="big">Your next deal already has a home. Find it.</div>
+      <p>Talk to Luna above, or take one of the Founding Broker seats while they're open.</p>
+      <div class="cta-row sans" style="justify-content:center">
+        <a class="btn btn-gold" href="https://buy.stripe.com/eVqcN5bU67bz0qw9TKcs803">Become a Founding Broker</a>
+        <a class="btn btn-outline" href="mailto:admin@getluminaai.com?subject=Lumina%20Capital%20question">Email Us</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">Lumina <b>Capital</b></div>
+    <p>Lumina Capital is a matching and deal-management platform for business loan brokers. We are not a lender. Recommendations are based on the parameters you confirm and the lender profiles in our database; indicative rate and term ranges are profiles, not offers. Lenders make their own underwriting decisions, and no funding outcome is guaranteed.</p>
+    <h4>Before we start — the honest disclosures</h4>
+    <ul>
+      <li>No funding, approval, or placement outcome is guaranteed — ever.</li>
+      <li>Recommendations show lender profiles, not offers; the lender's own underwriting decides.</li>
+      <li>A lender's identity is released only for the one lender you select for a deal, and the release is logged.</li>
+      <li>Subscriptions are prepaid monthly through Stripe; you can cancel at any time.</li>
+    </ul>
+    <p class="fine">Nothing on this page is legal or financial advice.</p>
+    <p class="fine">© 2026 Lumina Capital · A NovaStar AI Solutions platform</p>
+  </div>
+</footer>
+
+</body>
+</html>
